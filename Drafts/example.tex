@@ -1,0 +1,72 @@
+% Every document has to start with a documentclass declaration
+\documentclass[11pt]{article}
+
+% Everything after documentclass and before "\begin{document}" is called the preamble. 
+% This is where you put in optional packages to control the look of the paper
+\usepackage{amsmath} % necessary for most math symbols
+\usepackage{setspace} % allows double or one-half spacing
+\usepackage{lscape} % allow landscape pages for tables
+\usepackage[top=1.25in,bottom=1.25in,left=1in,right=1in]{geometry} % adjust margins
+\usepackage{graphicx} % figure management
+\usepackage{epstopdf} % converts eps figures to pdf
+\usepackage{booktabs} % expanded table options
+\usepackage{dcolumn} % align decimals in tables
+\usepackage{natbib} % bibliography commands
+\usepackage{tabularx} % auto-size table columns
+\usepackage[T1]{fontenc} % this ensures that special characters write to PDF properly
+
+% In the preamble you also put in meta-data that can be used on the title page
+\title{A Title for Your Paper\thanks{Contact information. I am not a huge fan of the asterisk next to the title, but it isn't obvious where this should go. You could alternatively use one of the authors - preferably the corresponding author.}} 
+\author{ % enter author names, with affiliation
+    Dietrich Vollrath \\ 
+    University of Houston
+    \and
+    Zippy Zperson \\
+    University of Houston
+}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract} % We'll be adding an abstract to your title page with this 
+\noindent This is a style guide for Latex papers for use by graduate students at the University of Houston. Notice that this is \textbf{not} centered on the page. Having it centered with make it look ragged. It should be flush left. I have also put in a no-indent command, so that the abstract does not indent. This gives the abstract a nice block look. The title page should have an empty page style, so that no page number appears. Put the keywords and JEL codes inside the abstract environment so they are sized appropriately and are flush with the abstract.\\
+
+\noindent \textbf{Keywords:} separated by commas, words or short phrases \\
+
+\noindent \textbf{JEL classification:} O1, M1, or other JEL codes
+\end{abstract}
+
+\newpage % This tells TeX to start a new page, not surprisingly
+\setcounter{page}{1} % This will reset the page number to 1
+
+\section{Introduction}
+\onehalfspacing Pulling in my tables.
+
+\clearpage
+
+\begin{table}[!htb]
+\begin{center}
+\caption{Estimates of Education Effect, by Country}
+\label{TAB_effect}
+{\footnotesize
+\begin{tabularx}{\textwidth}{lXXXXXX}
+\toprule
+ & \multicolumn{6}{c}{Dependent variable:} \\ \\
+ & \multicolumn{3}{c}{Log wages:} & \multicolumn{3}{c}{Hours worked (wk):} \\ \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+ & (1) & (2) & (3) & (4) & (5) & (6) \\ \midrule
+\multicolumn{7}{l}{Panel A: Albania} \\ \\
+\input{tab_reg_Albania05.tex}
+\midrule
+\multicolumn{7}{l}{Panel B: Bangladesh} \\ \\
+\input{tab_reg_Bangladesh00.tex}
+\bottomrule
+\end{tabularx}
+}
+\end{center}
+\vspace{-.5cm}\singlespacing {\footnotesize \textbf{Notes}: Really, really smart regressions like this take a lot of work.
+}
+\end{table}
+\end{document}
