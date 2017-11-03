@@ -20,3 +20,8 @@ reg ln_tot_wge_d edu age age_sq i.industry i.occupation, robust
 reg tot_hrsweek edu age age_sq, robust
 reg tot_hrsweek edu age age_sq i.industry, robust
 reg tot_hrsweek edu age age_sq i.industry i.occupation, robust
+
+// Extra new code
+reg tot_hrsweek edu age age_sq, robust
+reg tot_hrsweek edu age age_sq i.industry, robust
+reg tot_hrsweek edu age age_sq i.industry i.occupation, robust
